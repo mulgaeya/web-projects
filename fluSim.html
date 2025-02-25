@@ -1,18 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>FluSim</title>
-    <style>
-        body {
-            background-color: #252525;
-        }
-    </style>
+<style>
+    * {
+        font-family: "Press Start 2P", serif;
+    }
+
+
+    body {
+        background-color: #5A0C07;
+        margin: 0; /* Ensures no default margins interfere */
+        overflow: hidden; /* Prevents scrolling */
+    }
+    h1 {
+        margin:0;
+    }
+
+    canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    button {
+        border: 0;
+        cursor: pointer;
+        font-size: 25px;
+    }
+
+    button:hover {
+        background-color: #c7adac;
+    }
+    
+    .battle-ui {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 280px;
+        background-color: white;
+        border-top: 8px solid #2e0300;
+        border-left: 8px solid #2e0300;
+        display: flex; /* Hidden by default */
+        align-items: center;
+        padding: 10px;
+    }
+
+    .health-ui {
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        width: 300px;
+        background-color: white;
+        border: 8px solid #2e0300;
+        display: flex; /* Hidden by default */
+        z-index: 1000;
+    }
+</style>
 </head>
+
 <body>
-    <canvas> </canvas>
-    <script src ="index.js"></script>
+    <div class="health-ui">
+        <h1 style="font-size: 20px;">Influenza</h1> 
+    </div>
+    <canvas></canvas> 
+    <div class="battle-ui">
+        <div style="width: 66.66%; display: grid; height:300px; grid-template-columns: repeat(2, 1fr);">
+            <button>Attack1</button>
+            <button>Attack2</button>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; width: 33.33%; height: 300px; border-left: 8px solid #2e0300;">
+            <h1 style ="font-size: 25px;">Attack Type</h1>
+        </div>
+    </div> 
+
+    <script src="data/battleZones.js"></script>
+    <script src="data/collisions.js"></script>
+    <script src="index.js"></script>
 </body>
-</html>
 
